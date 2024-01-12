@@ -31,3 +31,4 @@ class TensorMainPageLocators:
 
 class TensorAboutPageLocators:
     ABOUT_COMPANY_BANNER = (By.CLASS_NAME, "tensor_ru-About__Banner-title")
+    WORK_BLOCK_IMG = (By.CSS_SELECTOR, ".tensor_ru-About__block3-image-wrapper>img")

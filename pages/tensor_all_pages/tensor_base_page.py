@@ -30,7 +30,7 @@ class BasePage:
             return False
         return True
 
-    def get_element(self, by, locator, timeout=10) -> object:
+    def get_element(self, by, locator, timeout=10):
         """Найти и получить элемент для дальнейшего взаимодействия с ним"""
         try:
             element = WebDriverWait(self.browser, timeout).until(
@@ -39,8 +39,18 @@ class BasePage:
             return element
         except (TimeoutException, NoSuchElementException) as e:
             print(f"Element with locator {locator} not found: {e}")
-            return None
+            return []
 
+    def get_elements(self, by, locator, timeout=10):
+        """Найти и получить список элементов для дальнейшего взаимодействия с ними"""
+        try:
+            elements = WebDriverWait(self.browser, timeout).until(
+                EC.presence_of_all_elements_located((by, locator))
+            )
+            return elements
+        except (TimeoutException, NoSuchElementException) as e:
+            print(f"Elements with locator locator not found: e")
+            return []
     def is_not_element_present(self, by, locator, timeout=4) -> bool:
         """Элемент не появляется на странице в течение заданного времени.
         Упадет, как только увидит искомый элемент. Не появился: успех, тест зеленый"""

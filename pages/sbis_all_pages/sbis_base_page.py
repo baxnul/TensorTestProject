@@ -15,7 +15,7 @@ class BasePage:
         self.browser.get(self.url)
 
     def go_to_contact_page(self):
-        contact_link = self.browser.find_element(*SbisBasePageLocators.CONTACT_LINK)
+        contact_link = self.get_element(*SbisBasePageLocators.CONTACT_LINK)
         contact_link.click()
 
     def should_be_contact_link(self):
