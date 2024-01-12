@@ -1,8 +1,8 @@
-from pages.tensor_all_pages.tensor_base_page import BasePage
+from pages.tensor_all_pages.tensor_base_page import TensorBasePage
 from pages.locators import TensorAboutPageLocators, TensorBasePageLocators
 
 
-class TensorAboutPage(BasePage):
+class TensorAboutPage(TensorBasePage):
     def should_be_about_page(self):
         self.should_be_about_url()
         self.should_be_main_tensor_link()

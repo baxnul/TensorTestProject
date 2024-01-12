@@ -1,6 +1,6 @@
-from .sbis_base_page import BasePage
+from .sbis_base_page import SbisBasePage
 from pages.locators import SbisMainPageLocators
 
 
-class SbisMainPage(BasePage):
+class SbisMainPage(SbisBasePage):
     pass

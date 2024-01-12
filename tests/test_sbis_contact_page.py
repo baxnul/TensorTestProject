@@ -1,3 +1,5 @@
+import time
+
 from pages.sbis_all_pages.sbis_contact_page import SbisContactPage
 from pages.tensor_all_pages.tensor_main_page import TensorMainPage
 from pages.links import SbisUrls
@@ -8,6 +10,8 @@ class TestContactFromMainPage:
         page = SbisContactPage(browser, SbisUrls.SBIS_CONTACT_PAGE_LINK)
         page.open()
         page.should_be_contact_page()
+        page.should_be_defined_user_location()
+        page.should_be_list_partner()
 
     def test_guest_should_see_link_tensor_page(self, browser):
         page = SbisContactPage(browser, SbisUrls.SBIS_CONTACT_PAGE_LINK)
@@ -16,3 +20,10 @@ class TestContactFromMainPage:
         tensor_page = TensorMainPage(browser, browser.current_url)
         tensor_page.switch_to_last_window()  # Переключиться на последнюю вкладку браузера
         tensor_page.should_be_tensor_page()
+
+    def test_guest_can_edit_current_region(self, browser):
+        page = SbisContactPage(browser, SbisUrls.SBIS_CONTACT_PAGE_LINK)
+        page.open()
+        page.edit_current_selected_region()
+        page.select_new_region()
+        page.should_be_selected_new_region()

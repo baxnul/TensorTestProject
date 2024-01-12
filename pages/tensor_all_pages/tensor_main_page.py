@@ -1,8 +1,8 @@
-from pages.tensor_all_pages.tensor_base_page import BasePage
+from pages.tensor_all_pages.tensor_base_page import TensorBasePage
 from pages.locators import TensorMainPageLocators, TensorBasePageLocators
 
 
-class TensorMainPage(BasePage):
+class TensorMainPage(TensorBasePage):
     def should_be_tensor_page(self):
         self.should_be_tensor_url()
         self.should_be_contact_form()
