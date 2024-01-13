@@ -17,11 +17,11 @@ class SbisMainPageLocators:
 class SbisContactPageLocators:
     CONTACT_FORM = (By.ID, "contacts_list")
     TENSOR_IMG = (By.CSS_SELECTOR, "[alt='Разработчик системы СБИС — компания «Тензор»']")
-    LIST_PARTNER = (By.NAME, "viewContainer")
+    FORM_LIST_PARTNER = (By.NAME, "viewContainer")
     BEFORE_EDIT_REGION = (By.ID, "city-id-2")
     CURRENT_SELECTED_REGION = (By.CSS_SELECTOR, ".sbis_ru-Region-Chooser__text.sbis_ru-link")
-    # TOTAL_EDIT_REGION = (By.CSS_SELECTOR, "[title='Камчатский край']")
-    TOTAL_EDIT_REGION = (By.XPATH, '//*[@title="Камчатский край"]')
+    TOTAL_EDIT_REGION = (By.CSS_SELECTOR, "[title='Камчатский край']")
+    CURRENT_REGION_PARTNER = (By.ID, 'city-id-2')
 
 
 class TensorBasePageLocators:

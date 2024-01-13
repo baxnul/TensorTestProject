@@ -1,7 +1,8 @@
-import time
-
 from .sbis_base_page import SbisBasePage
 from pages.locators import SbisContactPageLocators
+
+url1 = ""
+url2 = ""
 
 
 class SbisContactPage(SbisBasePage):
@@ -23,7 +24,7 @@ class SbisContactPage(SbisBasePage):
         assert self.is_element_present(*SbisContactPageLocators.BEFORE_EDIT_REGION), "User location undefined"
 
     def should_be_list_partner(self):
-        assert self.is_element_present(*SbisContactPageLocators.LIST_PARTNER), "partner list undefined"
+        assert self.is_element_present(*SbisContactPageLocators.FORM_LIST_PARTNER), "partner list undefined"
 
     def edit_current_selected_region(self):
         """Нажать на текст с надписью региона который определился"""
@@ -41,5 +42,18 @@ class SbisContactPage(SbisBasePage):
                                              text_='Камчатский край'), "Kamchatsky region is not selected"
 
     def url_edited_for_new_region(self):
-        """В URL должно поменяться """
+        """В URL должно поменяться регион на выбранный"""
         contact_url_after = self.browser.current_url  # URL после смены региона
+
+    def current_url_have_text_kamchatskij(self):
+        """Сравниваем есть ли в текущем url текст 41-kamchatskij-kraj,
+            который мы выбрали для проверки возможности смены локации"""
+        current_url = self.browser.current_url
+        assert "41-kamchatskij-kraj" in current_url, "text '41-kamchatskij-kraj' not in current url"
+
+    def title_have_text_kamchatskij(self):
+        assert "Камчатский край" in self.browser.title, "Title on page not change on 'Камчатский край'"
+
+    def list_of_partners_changed(self):
+        assert self.wait_for_text_in_element(*SbisContactPageLocators.CURRENT_REGION_PARTNER,
+                                             text_='Петропавловск-Камчатский'), "Kamchatsky region is not view in list partners"

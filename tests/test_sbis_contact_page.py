@@ -1,5 +1,3 @@
-import time
-
 from pages.sbis_all_pages.sbis_contact_page import SbisContactPage
 from pages.tensor_all_pages.tensor_main_page import TensorMainPage
 from pages.links import SbisUrls
@@ -27,3 +25,9 @@ class TestContactFromMainPage:
         page.edit_current_selected_region()
         page.select_new_region()
         page.should_be_selected_new_region()
+        page.list_of_partners_changed()
+        page.current_url_have_text_kamchatskij()
+        page.title_have_text_kamchatskij()
+
+
+
