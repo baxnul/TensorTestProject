@@ -13,3 +13,8 @@ class SbisBasePage(BasePage):
 
     def should_be_contact_link(self):
         assert self.is_element_present(*SbisBasePageLocators.CONTACT_LINK), "contact link is not presented"
+
+    def go_to_download_page(self):
+        self.execute_script_click(*SbisBasePageLocators.FOOTER_TRANSIT_DOWNLOAD_SBIS)
+
+

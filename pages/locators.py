@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 
 class SbisBasePageLocators:
     CONTACT_LINK = (By.XPATH, "//a[@href='/contacts']")
+    FOOTER_TRANSIT_DOWNLOAD_SBIS = (By.CSS_SELECTOR, "[href='/download?tab=ereport&innerTab=ereport25']")
 
 
 class SbisMainPageLocators:
@@ -22,6 +23,13 @@ class SbisContactPageLocators:
     CURRENT_SELECTED_REGION = (By.CSS_SELECTOR, ".sbis_ru-Region-Chooser__text.sbis_ru-link")
     TOTAL_EDIT_REGION = (By.CSS_SELECTOR, "[title='Камчатский край']")
     CURRENT_REGION_PARTNER = (By.ID, 'city-id-2')
+
+
+class SbisDownloadPageLocators:
+    DOWNLOAD_FORM = (By.CLASS_NAME, "sbis_ru-VerticalTabs__right")
+    TAB_BUTTONS = (By.CLASS_NAME, "controls-tabButton__overlay")
+    WINDOWS_WINDOW = (By.XPATH, "//span[contains(text(), 'Windows')]")
+    WINDOWS_FILE_DOWNLOAD = (By.CSS_SELECTOR, "[href='https://update.sbis.ru/Sbis3Plugin/master/win32/sbisplugin-setup-web.exe']")
 
 
 class TensorBasePageLocators:
