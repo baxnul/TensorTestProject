@@ -8,7 +8,7 @@ from pages.locators import SbisBasePageLocators
 
 class SbisBasePage(BasePage):
     def go_to_contact_page(self):
-        contact_link = self.get_element(*SbisBasePageLocators.CONTACT_LINK)
+        contact_link = self.element_to_be_clickable(*SbisBasePageLocators.CONTACT_LINK)
         contact_link.click()
 
     def should_be_contact_link(self):

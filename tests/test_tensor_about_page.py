@@ -5,7 +5,7 @@ from pages.links import TensorUrls
 class TestImgFromAboutPage:
     def test_guest_should_see_about_page_link(self, browser):
         """Проверка наличия баннера Тензор"""
-        page = TensorAboutPage(browser, TensorUrls.TENSOR_MAIN_PAGE_LINK)
+        page = TensorAboutPage(browser, TensorUrls.TENSOR_ABOUT_PAGE_LINK)
         page.open()
         page.should_be_about_page()
 
