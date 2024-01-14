@@ -34,6 +34,7 @@ class SbisDownloadPage(SbisBasePage):
 
     def download_web_installer_for_windows(self):
         """Нажимаем скачать ВЕБ установщик для Windows
+            сохраняем файл в папку, где лежит тест для запуска,
             и сравниваем размер файла указанный на сайте и размер скачанного файла"""
         download_file = self.get_element(*SbisDownloadPageLocators.WINDOWS_FILE_DOWNLOAD)
         # download_file.click()

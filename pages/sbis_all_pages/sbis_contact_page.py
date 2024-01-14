@@ -51,6 +51,6 @@ class SbisContactPage(SbisBasePage):
     def title_have_text_kamchatskij(self):
         assert "Камчатский край" in self.browser.title, "Title on page not change on 'Камчатский край'"
 
-    def list_of_partners_shoul_be_equal_kamchatskij(self):
+    def list_of_partners_should_be_equal_kamchatskij(self):
         assert self.wait_for_text_in_element(*SbisContactPageLocators.CURRENT_REGION_PARTNER,
                                              text_='Петропавловск-Камчатский'), "Kamchatsky region is not view in list partners"
