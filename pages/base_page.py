@@ -1,6 +1,7 @@
 from selenium.common.exceptions import *
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions
 
 
 class BasePage:
@@ -64,7 +65,7 @@ class BasePage:
             )
             return element
         except (TimeoutException, NoSuchElementException) as e:
-            print(f"Element with locator locator not found: e")
+            print(f"Element with locator {locator} not found: {e}")
             return None
 
     def wait_for_text_in_element(self, by, locator, text_, timeout=10) -> bool:
@@ -86,6 +87,18 @@ class BasePage:
         except TimeoutException:
             return True
         return False
+
+    def execute_script_click(self, by, locator, timeout=10):
+        """Ждать пока элемент не станет кликабельным и выполнить клик на нем при помощи JAVA SCRIPT"""
+        try:
+            element = WebDriverWait(self.browser, timeout).until(
+                EC.element_to_be_clickable((by, locator))
+            )
+            self.browser.execute_script("arguments[0].click();", element)
+            return True
+        except (TimeoutException, NoSuchElementException) as e:
+            print(f"Element with locator {locator} not found: {e}")
+            return False
 
     def is_disappeared(self, by, locator, timeout=4) -> bool:
         """Проверить, что какой-то элемент исчезает.
