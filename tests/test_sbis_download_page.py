@@ -1,5 +1,3 @@
-import time
-
 from pages.sbis_all_pages.sbis_download_page import SbisDownloadPage
 from pages.links import SbisUrls
 
