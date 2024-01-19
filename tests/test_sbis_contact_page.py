@@ -1,7 +1,7 @@
 from pages.sbis_all_pages.sbis_contact_page import SbisContactPage
 from pages.tensor_all_pages.tensor_main_page import TensorMainPage
 from pages.links import SbisUrls
-from logger.logger import logging
+from logger.setting_logger import logging
 
 
 class TestContactFromMainPage:

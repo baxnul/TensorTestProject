@@ -1,6 +1,6 @@
 from pages.sbis_all_pages.sbis_download_page import SbisDownloadPage
 from pages.links import SbisUrls
-from logger.logger import logging
+from logger.setting_logger import logging
 
 
 class TestContactFromDownloadPage:

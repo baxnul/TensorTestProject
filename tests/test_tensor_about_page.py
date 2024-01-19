@@ -1,7 +1,7 @@
 from pages.tensor_all_pages.tensor_about_page import TensorAboutPage
 from pages.links import TensorUrls
 
-from logger.logger import logging
+from logger.setting_logger import logging
 
 
 class TestImgFromAboutPage:
