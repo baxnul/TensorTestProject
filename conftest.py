@@ -1,10 +1,10 @@
-import os
-
 import pytest
+from loguru import logger
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as OptionsFirefox
-from logger.setting_logger import setup_logging
+
+logger.add("./logs/test.log", format="{time} {level} {message}", level="DEBUG", rotation="10 MB", compression="zip")
 
 
 def pytest_addoption(parser):
@@ -15,6 +15,7 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture(scope="function")
+@logger.catch()
 def browser(request):
     browser_name = request.config.getoption("browser_name")
     user_language = request.config.getoption("language")
@@ -37,10 +38,3 @@ def browser(request):
     yield browser
     print("\nquit browser..")
     browser.quit()
-
-
-@pytest.fixture(scope="session", autouse=True)
-def logging_start():
-    setup_logging()
-
-
