@@ -8,7 +8,7 @@ class SbisContactPage(SbisBasePage):
         self.should_be_contact_form()
 
     def should_be_contact_url(self):
-        assert "contacts1" in self.browser.current_url, 'In URL ABSENT contacts word'
+        assert "contacts" in self.browser.current_url, 'In URL ABSENT contacts word'
 
     def should_be_contact_form(self):
         assert self.is_element_present(*SbisContactPageLocators.CONTACT_FORM), "contact form is not presented"
