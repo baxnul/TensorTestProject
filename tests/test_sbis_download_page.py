@@ -1,11 +1,9 @@
-from loguru import logger
-
 from pages.sbis_all_pages.sbis_download_page import SbisDownloadPage
 from pages.links import SbisUrls
 
 
 class TestContactFromDownloadPage:
-    @logger.catch()
+
     def test_guest_should_see_contact_page(self, browser):
         page = SbisDownloadPage(browser, SbisUrls.SBIS_DOWNLOAD_PAGE_LINK)
         page.open()

@@ -1,5 +1,3 @@
-from loguru import logger
-
 from pages.sbis_all_pages.sbis_contact_page import SbisContactPage
 from pages.sbis_all_pages.sbis_download_page import SbisDownloadPage
 from pages.sbis_all_pages.sbis_main_page import SbisMainPage
@@ -7,14 +5,12 @@ from pages.links import SbisUrls
 
 
 class TestContactFromMainPage:
-    @logger.catch()
     def test_guest_should_see_contact_link(self, browser):
         """Проверка наличия кнопки контакты"""
         page = SbisMainPage(browser, SbisUrls.SBIS_MAIN_PAGE_LINK)
         page.open()
         page.should_be_contact_link()
 
-    @logger.catch()
     def test_guest_can_go_to_contact_page(self, browser):
         page = SbisMainPage(browser, SbisUrls.SBIS_MAIN_PAGE_LINK)
         page.open()
@@ -22,7 +18,6 @@ class TestContactFromMainPage:
         contact_page = SbisContactPage(browser, browser.current_url)
         contact_page.should_be_contact_page()
 
-    @logger.catch()
     def test_guest_can_go_to_download_page(self, browser):
         page = SbisMainPage(browser, SbisUrls.SBIS_MAIN_PAGE_LINK)
         page.open()

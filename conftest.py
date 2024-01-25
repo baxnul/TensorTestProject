@@ -1,10 +1,7 @@
 import pytest
-from loguru import logger
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as OptionsFirefox
-
-logger.add("./logs/test.log", format="{time} {level} {message}", level="DEBUG", rotation="10 MB", compression="zip")
 
 
 def pytest_addoption(parser):
@@ -15,7 +12,6 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture(scope="function")
-@logger.catch()
 def browser(request):
     browser_name = request.config.getoption("browser_name")
     user_language = request.config.getoption("language")
